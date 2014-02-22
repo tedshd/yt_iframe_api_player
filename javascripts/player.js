@@ -20,8 +20,14 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
 function YTPlayer(option) {
-    if (option.videoList.length === 0) {
-        return console.warn('no video');
+    if (!option) {
+        return console.warn('no video, please add videos id array');
+    }
+    if (!option.videoList) {
+        return console.warn('no video, please add videos id array');
+    }
+    if (option.videoList && option.videoList.length === 0) {
+        return console.warn('no video, please add videos id array');
     }
     if (!option.parameters) {
         option.parameters = {
