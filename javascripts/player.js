@@ -4,8 +4,13 @@
  * @authors tedshd@gmail.com
  * @date    2014-02-21 23:51:16
  * @version $Id$
+ * @github  https://github.com/tedshd/yt_iframe_api_player
  */
 
+// YTPlayer.switchVideo(0);
+// YTPlayer.switchVideo(1);
+// YTPlayer.player.pauseVideo();
+// YTPlayer.player.playVideo();
 
 // call YouTube iframe api
 var tag = document.createElement('script'),
@@ -14,10 +19,6 @@ tag.src = 'https://www.youtube.com/iframe_api';
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
-// YTPlayer.switchVideo(0);
-// YTPlayer.switchVideo(1);
-// YTPlayer.pauseVideo();
-// YTPlayer.playVideo();
 function YTPlayer(option) {
     if (option.videoList.length === 0) {
         return console.warn('no video');
@@ -44,6 +45,7 @@ function YTPlayer(option) {
     if (!option.height) {
         option.height = 720;
     }
+
     if (document.querySelector('#player')) {
         var playCount = 0,
             player,
