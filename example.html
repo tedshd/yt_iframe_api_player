@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="player"></div>
+    <div>
+        <button class="btn" id="play">Pause</button>
+        <button class="btn" id="prev">&lt; Prev</button>
+        <button class="btn" id="next">Next &gt;</button>
+    </div>
+</body>
+<script src="javascripts/player.js"></script>
+<script>
+// youtube video id
+var videos = [
+    'mTSuiGubCHE',
+    'uEVVJ8b2b-E',
+    'DDs5bXh4erM',
+    '7wvNwOPprBE',
+    'n-BXNXvTvV4',
+    'CRJDQQXS4uE',
+    'ASO_zypdnsQ',
+    'IZkYdqRWKaY',
+    '9Y15es8OY0U',
+    'LWV-f6dMN3Q'
+];
+// player parameters
+var parameters = {
+    rel: 1,
+    autoplay: 1,
+    disablekb: 0,
+    showsearch: 0,
+    showinfo: 0,
+    controls: 1,
+    autohide: 0,
+    modestbranding: 0,
+    wmode: 'opaque',
+    hd: 1,
+    html5: 0,
+    iv_load_policy: 3
+};
+var YTPlayer = new YTPlayer(
+    {
+        videoList: videos,
+        parameters: parameters,
+        width: 640,
+        height: 480
+    }
+);
+
+// button control
+document.querySelector('#play').addEventListener('click', function() {
+    if (YTPlayer.player.getPlayerState() === 2) {
+        YTPlayer.player.playVideo();
+        document.querySelector('#play').innerHTML = 'Pause';
+    }
+    if (YTPlayer.player.getPlayerState() === 1) {
+        YTPlayer.player.pauseVideo();
+        document.querySelector('#play').innerHTML = 'Play';
+    }
+});
+document.querySelector('#prev').addEventListener('click', function() {
+    YTPlayer.switchVideo(0);
+});
+document.querySelector('#next').addEventListener('click', function() {
+    YTPlayer.switchVideo(1);
+});
+</script>
+</html>
