@@ -13,6 +13,8 @@ It is base on YouTube iframe player API.
 
 [YouTube Player API Reference for iframe Embeds](https://developers.google.com/youtube/iframe_api_reference)
 
+[Develop note](http://tedshd.logdown.com/posts/168315-javascript-youtube-api-note)
+
 ### Usage
 
 New a object
